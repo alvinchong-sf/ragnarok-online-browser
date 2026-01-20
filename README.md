@@ -11,9 +11,10 @@ brew install zlib
 # cd into Hercules and run
 CPPFLAGS="-I/opt/homebrew/Cellar/pcre/8.45/include" 
 LDFLAGS="-L/opt/homebrew/Cellar/pcre/8.45/lib" 
-./configure
+./configure --enable-packetver=20130618 --disable-renewal
 
 # after running ./configure
+make clean
 make all
 
 # login to mysql
@@ -23,7 +24,18 @@ mysql -u ragnarok -p ragnarok
 show tables;
 
 # ws proxy for testing
+npm install
 
 
+# running game
+    # Hercules
+    ./login-server
+    ./char-server
+    ./map-server
 
+    # ro browser ws-proxy
+    npm start
+
+    # ro browser legacy
+    npm run live
 ```
