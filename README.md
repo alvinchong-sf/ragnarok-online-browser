@@ -16,6 +16,13 @@ LDFLAGS="-L/opt/homebrew/Cellar/pcre/8.45/lib"
 # after running ./configure
 make all
 
+# login to mysql
+mysql -u ragnarok -p ragnarok
+
+# mysql commands
+show tables;
+
+# ws proxy for testing
 
 
 
