@@ -11,7 +11,8 @@ brew install zlib
 # cd into Hercules and run
 CPPFLAGS="-I/opt/homebrew/Cellar/pcre/8.45/include" 
 LDFLAGS="-L/opt/homebrew/Cellar/pcre/8.45/lib" 
-./configure --enable-packetver=20180620 --disable-renewal
+./configure --enable-packetver=20151104 --disable-renewal
+
 # 20151104 - Very stable, widely used
 # 20141022 - Also popular
 # 20180620 - Newer, what you just tried
@@ -19,8 +20,12 @@ LDFLAGS="-L/opt/homebrew/Cellar/pcre/8.45/lib"
 # 20120410 - Classic era
 # 20130618 - Niktout 
 
-# after running ./configure
-make clean
+# rathena pcre issue
+CPPFLAGS="-I/opt/homebrew/Cellar/pcre/8.45/include" 
+LDFLAGS="-L/opt/homebrew/Cellar/pcre/8.45/lib" 
+./configure --enable-prere --enable-packetver=20120410 && make clean && make server
+
+# for Hercules only
 make all
 
 # login to mysql
@@ -44,4 +49,13 @@ npm install
 
     # ro browser legacy
     npm run live
+
+    # rathena
+    ./athena-start start
+    ./athena-start stop
+    ./athena-start restart
+
+# when changing packet version in Hercules, make sure to change in demo.html and mmo.h files
+
+
 ```
