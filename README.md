@@ -126,5 +126,5 @@ EXIT;
 npm start
 
 # ro browser legacy
-npm run live
+npm run live # Go to demo.html to get started
 ```
