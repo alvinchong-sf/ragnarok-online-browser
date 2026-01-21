@@ -11,7 +11,7 @@ brew install zlib
 # cd into Hercules and run
 CPPFLAGS="-I/opt/homebrew/Cellar/pcre/8.45/include" 
 LDFLAGS="-L/opt/homebrew/Cellar/pcre/8.45/lib" 
-./configure --enable-packetver=20130618 --disable-renewal
+./configure --enable-packetver=20180620 --disable-renewal
 # 20151104 - Very stable, widely used
 # 20141022 - Also popular
 # 20180620 - Newer, what you just tried
