@@ -1,0 +1,19 @@
+prontera,146,174,4	script	Item Merchant	4_M_ORIENT02,{
+	
+	mes "[Item Merchant]";
+	mes "I sell Items!";
+	mes "What do you need?";
+	next;
+	
+    sellitem 501;  // Red Potion
+    sellitem 502;  // Orange Potion
+    sellitem 503;  // Yellow Potion
+    sellitem 504;  // White Potion
+    sellitem 505;  // Blue Potion
+    sellitem 506;  // Green Potion
+    sellitem 601;  // Fly Wing
+    sellitem 602;  // Butterfly Wing
+    sellitem 607;  // Yggdrasil Berry
+    sellitem 4399; // Memory of Thanatos
+    close;
+}
