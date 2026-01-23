@@ -130,4 +130,4 @@ npm run live # Go to demo.html to get started
 ```
 
 ### Screenshots
-![Login in first time](https://github-production-user-asset-6210df.s3.amazonaws.com/54681072/538855143-9c20b78f-832c-4fd7-b6b3-ee3a7497ed55.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260121%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260121T234455Z&X-Amz-Expires=300&X-Amz-Signature=1ca66afd45033714dce520cd55138d6e04b12e2f82fd4880c72b4739b55b3b15&X-Amz-SignedHeaders=host)
+![Login in first time](https://i.imgur.com/pIyOXQZ.jpeg)
