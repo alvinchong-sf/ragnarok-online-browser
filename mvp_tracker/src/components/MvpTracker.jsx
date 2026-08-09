@@ -94,17 +94,17 @@ const STORAGE_KEY = "mvp_tracker_state_v1";
 // React state only (resets on refresh). Outside Claude, uncomment the
 // localStorage lines below (marked with // LS:) to persist across sessions.
 function loadInitialState() {
-  // LS: try {
-  // LS:   const raw = localStorage.getItem(STORAGE_KEY);
-  // LS:   if (raw) return JSON.parse(raw);
-  // LS: } catch (e) { /* ignore */ }
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch (e) { console.error(e) }
   return { mvps: DEFAULT_MVPS.map((m) => ({ ...m, lastKilled: null })) };
 }
 
 function persist(state) {
-  // LS: try {
-  // LS:   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  // LS: } catch (e) { /* ignore */ }
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (e) { console.error(e) }
 }
 
 function formatDuration(ms) {
