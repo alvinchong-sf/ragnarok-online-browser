@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { Clock, RotateCcw } from "lucide-react";
-import { STORAGE_KEY, DEFAULT_MVPS, GROUP_LABELS } from "./utility";
+import { STORAGE_KEY, DEFAULT_MVPS, GROUP_LABELS, DEFAULT_WINDOWS } from "./utility";
 
 // In Claude's artifact sandbox localStorage throws, so kills/config live in
 // React state only (resets on refresh). Outside Claude, uncomment the
@@ -78,6 +78,14 @@ export default function MvpTracker() {
     }));
   };
 
+  const resetWindow = (id) => {
+    const def = DEFAULT_WINDOWS[id];
+    if (!def) return;
+    setState((s) => ({
+      mvps: s.mvps.map((m) => (m.id === id ? { ...m, minMin: def.minMin, maxMin: def.maxMin } : m)),
+    }));
+  };
+
   // Build grouped sections, preserving DEFAULT_MVPS order within each group
   // and GROUP_LABELS key order for section order. No auto-sorting.
   const groupedRows = useMemo(() => {
@@ -89,7 +97,7 @@ export default function MvpTracker() {
     }));
   }, [state.mvps, now]);
 
-  return (
+ return (
     <div className="min-h-screen bg-neutral-50 text-neutral-900 p-3">
       <div className="max-w-4xl mx-auto flex flex-col gap-3">
         {groupedRows.map(
@@ -139,6 +147,12 @@ export default function MvpTracker() {
                               className="w-12 bg-neutral-100 border border-neutral-300 rounded px-1 py-0.5"
                             />
                             <span className="text-neutral-400">min</span>
+                            <button
+                              onClick={() => resetWindow(m.id)}
+                              className="text-neutral-400 hover:text-neutral-700 underline ml-1"
+                            >
+                              reset to default
+                            </button>
                           </div>
                         )}
                       </div>

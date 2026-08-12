@@ -90,3 +90,8 @@ export const GROUP_LABELS = {
 };
 
 export const STORAGE_KEY = "mvp_tracker_state_v1";
+
+// Original min/max per MVP, keyed by id - used to power the "Reset to default" button.
+export const DEFAULT_WINDOWS = Object.fromEntries(
+  DEFAULT_MVPS.map((m) => [m.id, { minMin: m.minMin, maxMin: m.maxMin }])
+);
