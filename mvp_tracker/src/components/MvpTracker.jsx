@@ -86,6 +86,12 @@ export default function MvpTracker() {
     }));
   };
 
+  const clearAllData = () => {
+    if (!window.confirm("This will erase all logged kill times and window edits. Continue?")) return;
+    localStorage.removeItem(STORAGE_KEY);
+    setState({ mvps: DEFAULT_MVPS.map((m) => ({ ...m, lastKilled: null })) });
+  };
+
   // Build grouped sections, preserving DEFAULT_MVPS order within each group
   // and GROUP_LABELS key order for section order. No auto-sorting.
   const groupedRows = useMemo(() => {
@@ -186,6 +192,10 @@ export default function MvpTracker() {
               </div>
             )
         )}
+        <button
+          onClick={clearAllData}
+          className="text-[10px] text-neutral-400 hover:text-red-600 underline self-start mt-1"
+        >Clear all data</button>
       </div>
     </div>
   );
