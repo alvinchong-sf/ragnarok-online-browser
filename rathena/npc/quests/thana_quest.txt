@@ -2226,6 +2226,7 @@ OnEnable:
 OnMyMobDead:
 	if (mobcount("thana_boss","#sommon_thanatos::OnMyMobDead") < 1) {
 		mapannounce "thana_boss","RAWWWWWWWWWWR........ This can't be.........................",bc_map,"0xff0000"; //FW_NORMAL 12 0 0
+		announce "[ MVP ] " + strcharinfo(0) + " has killed Thanatos!", bc_all, 0xFFFF00;
 		donpcevent "#cooltime_thana::OnEnable";
 		set $@thana_summon, 6;
 	}

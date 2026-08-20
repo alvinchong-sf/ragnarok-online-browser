@@ -3699,6 +3699,7 @@ OnStopTimer:
 OnMyMobDead:
 	mapannounce "ice_dun03","Oh, Odin! Please protect this place from Thor's fierce fire!",bc_map,0xFF6633;
 	mapannounce "ice_dun03","Pzzzzz...Pzzzz...",bc_map,0x33FFFF;
+	announce "[ MVP ] " + strcharinfo(0) + " has killed Ktullanux!", bc_all, 0xFFFF00;
 	donpcevent "ice_boss#on::OnStartTimer";
 	donpcevent "#ice_sec::OnStart";
 	end;

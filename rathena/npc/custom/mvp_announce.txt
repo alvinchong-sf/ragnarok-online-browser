@@ -1,0 +1,23 @@
+-	script	MVP_Announce	-1,{
+OnNPCKillEvent:
+	// True MVPs - always announced
+	if (getmonsterinfo(killedrid, MOB_MODE) & MD_MVP) {
+		announce "[ MVP ] " + strcharinfo(0) + " has killed " + getmonsterinfo(killedrid, MOB_NAME) + " at " + strcharinfo(3) + "!", bc_all, 0xFFFF00;
+		end;
+	}
+
+	// Select mini-bosses only - add mob IDs to .special_ids below, not every mini-boss
+	for (.@i = 0; .@i < getarraysize(.special_ids); .@i++) {
+		if (killedrid == .special_ids[.@i]) {
+			announce "[ Mini Boss ] " + strcharinfo(0) + " has killed " + getmonsterinfo(killedrid, MOB_NAME) + " at " + strcharinfo(3) + "!", bc_all, 0xFFFF00;
+			end;
+		}
+	}
+	end;
+
+OnInit:
+	// Add one mob ID per mini-boss you want announced.
+	// Find IDs with: grep -i "<mob name>" db/pre-re/mob_db.txt
+	setarray .special_ids[0], 1990, 1957, 1929, 1626, 1956, 1916, 1991; // Hardrock Mammoth - VERIFY this ID against grep output above before relying on it
+	end;
+}
